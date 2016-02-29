@@ -5,24 +5,29 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number to search:");
+        int query = scanner.nextInt();
 
+        int[] numbers = {1, 12, 13, 14, 15, 66,99, 100,101};
 
-        int[] numbers = {1, 200, 10, 10, 30, 4, -1, 20, 33, 41, 1, 10};
-        for (int j = 0; j < numbers.length; j++) {
-            for (int i = 0; i < numbers.length - 1 - j; i++) {
-                if (numbers[i] > numbers[i + 1]) {
-                    //swap
-                    int temp = numbers[i];
-                    numbers[i] = numbers[i + 1];
-                    numbers[i + 1] = temp;
-                }
+        int firstIdx = 0;
+        int lastIdx = numbers.length - 1; //the index of the last term
+
+        int queryIdx = -1;
+        while (firstIdx <= lastIdx){
+            int middle = (firstIdx + lastIdx) / 2;
+            if (numbers[middle] == query){
+                queryIdx = middle;
+                break;
+            }else if (query > numbers[middle]){
+                firstIdx = middle + 1;
+            }
+            else {
+                lastIdx = middle - 1;
             }
         }
 
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] +", ");
-        }
-
+        System.out.println(queryIdx);
     }
 }
