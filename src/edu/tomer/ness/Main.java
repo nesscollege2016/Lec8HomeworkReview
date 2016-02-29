@@ -5,21 +5,24 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //This is the array we need to search
-        int[] numbers = {100, 31, 10, 0, 1, 19};
+        //Scanner scanner = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter a number to search in the array:");
-        int num = scanner.nextInt();
-
-        int index = -1;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == num){
-                index = i;
-                break;
+        int[] numbers = {1, 200, 10, 10, 30, 4, -1, 20, 33, 41, 1, 10};
+        for (int j = 0; j < numbers.length; j++) {
+            for (int i = 0; i < numbers.length - 1 - j; i++) {
+                if (numbers[i] > numbers[i + 1]) {
+                    //swap
+                    int temp = numbers[i];
+                    numbers[i] = numbers[i + 1];
+                    numbers[i + 1] = temp;
+                }
             }
         }
-        System.out.println("The index of num is: " + index);
+
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] +", ");
+        }
+
     }
 }
