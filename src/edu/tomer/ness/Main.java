@@ -11,18 +11,19 @@ public class Main {
         int n = scanner.nextInt();
 
         String[][] starsMatrix = new String[n][n];
-
-        int counter = 1;
         for (int i = 0; i < starsMatrix.length; i++) {
-            for (int j = 0; j < starsMatrix[i].length; j++) {
-                starsMatrix[i][j] = "" + counter++;
-                System.out.printf("%-4s", starsMatrix[i][j]);
+            for (int j = 0; j <starsMatrix[i].length; j++) {
+                starsMatrix[i][j] = j <= i ? "*" :"" ;
             }
-            System.out.println();
         }
 
 
-
+        for (int i = 0; i < starsMatrix.length; i++) {
+            for (int j = 0; j < starsMatrix[i].length; j++) {
+                 System.out.printf("%s", starsMatrix[i][j]);
+            }
+             System.out.println();
+        }
 
     }
 }
